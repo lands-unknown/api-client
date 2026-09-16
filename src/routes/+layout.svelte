@@ -4,4 +4,6 @@
   const { children } = $props();
 </script>
 
-{@render children()}
+<div data-theme="dwarven">
+  {@render children()}
+</div>

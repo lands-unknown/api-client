@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { LandsUnknown } from '#lib/LandsUnknown.svelte.ts';
+  import { LuButton, LuPanel, LuText } from '@lands-unknown/origin';
 
   interface Props {
     lu: LandsUnknown;
@@ -20,16 +21,51 @@
 </script>
 
 <div class="flex max-w-96 flex-col space-y-8">
-  <form>
-    <div class="flex max-w-96 flex-col space-y-4">
-      <input type="text" bind:value={username} placeholder="Username" />
-      <input type="password" bind:value={password} placeholder="Password" />
+  <LuPanel>
+    <form
+      onsubmit={(e) => {
+        e.preventDefault();
+        login();
+      }}
+    >
+      <div class="flex max-w-96 flex-col space-y-4">
+        <div>
+          <LuPanel snug --pixel-upscale="1">
+            <input
+              id="username"
+              class="border-0 bg-transparent text-xl placeholder-black"
+              type="text"
+              bind:value={username}
+              placeholder="Username"
+            />
+          </LuPanel>
+        </div>
 
-      <input value="Log in" type="submit" class="cursor-pointer border p-2" onclick={() => login()} />
-    </div>
-  </form>
-
-  <form>
-    <input value="Log in as guest" type="submit" class="cursor-pointer border p-2" onclick={() => createGuest()} />
+        <div>
+          <LuPanel snug --pixel-upscale="1">
+            <input
+              id="password"
+              class="border-0 bg-transparent text-xl placeholder-black"
+              type="password"
+              bind:value={password}
+              placeholder="Password"
+            />
+          </LuPanel>
+        </div>
+        <LuButton>
+          <LuText>Log in</LuText>
+        </LuButton>
+      </div>
+    </form>
+  </LuPanel>
+  <form
+    onsubmit={(e) => {
+      e.preventDefault();
+      createGuest();
+    }}
+  >
+    <LuButton>
+      <LuText>Log in as guest</LuText>
+    </LuButton>
   </form>
 </div>

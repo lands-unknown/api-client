@@ -6,6 +6,7 @@
   import PlayerStatus from '#lib/components/PlayerStatus.svelte';
   import ConnectionStatus from '#lib/components/ConnectionStatus.svelte';
   import LoginForm from '#lib/components/LoginForm.svelte';
+  import { LuButton, LuText } from '@lands-unknown/origin';
 
   const lu = new LandsUnknown(LANDS_UNKNOWN_URL, GAME_ID);
 
@@ -67,11 +68,11 @@
     <LoginForm {lu} />
   {/if}
 
-  <div class="flex flex-col items-center">
-    <p>You have {things} things. You get {thingSpeed} things per second</p>
+  <div class="flex flex-col items-center space-y-2">
+    <LuText center>You have {things} things. You get {thingSpeed} things per second</LuText>
 
-    <button class="cursor-pointer border-2 p-2" onclick={() => buyThingSpeed()}
-      >Go faster for {thingSpeedCost} things</button
-    >
+    <LuButton onClick={() => buyThingSpeed()}>
+      <LuText>Go faster for {thingSpeedCost} things</LuText>
+    </LuButton>
   </div>
 </div>

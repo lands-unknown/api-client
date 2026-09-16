@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { LandsUnknown } from '#lib/LandsUnknown.svelte.ts';
   import landsUnknown from '#lib/assets/lands-unknown.png';
+  import { LuText } from '@lands-unknown/origin';
 
   interface Props {
     lu: LandsUnknown;
@@ -21,6 +22,6 @@
     />
   </div>
   {#if playerCount !== -1}
-    <span>{playerCount} players online</span>
+    <LuText>{playerCount} players online</LuText>
   {/if}
 </div>

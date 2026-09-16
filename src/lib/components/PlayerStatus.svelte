@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { LandsUnknown } from '#lib/LandsUnknown.svelte.ts';
+  import { LuButton, LuText } from '@lands-unknown/origin';
 
   interface Props {
     lu: LandsUnknown;
@@ -20,8 +21,11 @@
 
 {#if user}
   <div class="flex flex-col space-y-4">
-    <p>Achievements: {JSON.stringify(earnedAchievements)}</p>
-    <span>{user.username}: {user.achievementScore}xp</span>
-    <button class="max-w-24 border-2 p-2" onclick={() => logOut()}>Log out</button>
+    <LuText>Achievements: {JSON.stringify(earnedAchievements)}</LuText>
+    <LuText>{user.username}: {user.achievementScore}xp</LuText>
+
+    <div class="max-w-96">
+      <LuButton onClick={() => logOut()}>Log out</LuButton>
+    </div>
   </div>
 {/if}
