@@ -34,6 +34,7 @@ export class LandsUnknown {
       this._data = response;
       await this.fetchUserGame();
       await this.ping();
+      this.save();
     }
     return response;
   }
@@ -44,6 +45,7 @@ export class LandsUnknown {
       this._data = response;
       await this.fetchUserGame();
       await this.ping();
+      this.save();
     }
     return response;
   }
